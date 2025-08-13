@@ -1,0 +1,11 @@
+# dependencies
+node_modules
+.pnpm-store
+
+# Next.js build output
+.next
+out
+
+# env & OS junk
+.env*
+.DS_Store
