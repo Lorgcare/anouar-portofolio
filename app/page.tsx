@@ -99,7 +99,7 @@ const ITEMS: Item[] = [
     title: "Azure Network Engineer Associate (AZ-700)",
     category: "Badges",
     image:
-      "/badges/az700.png",
+      "/badges/az700z.png",
     tags: ["Azure", "Networking"],
   },
 
@@ -452,7 +452,7 @@ export default function Page() {
                   <IconLinkedIn className="h-6 w-6" />
                 </a>
                 <a
-                  href="https://github.com/yourusername"
+                  href="https://github.com/Lorgcare"
                   target="_blank"
                   rel="noreferrer"
                   className="text-slate-300 hover:text-white transition"
