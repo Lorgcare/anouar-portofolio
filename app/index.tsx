@@ -4,7 +4,7 @@ import React, { useMemo, useState } from "react";
 
 // Categories for the portfolio section
 const CATEGORIES = ["Projects", "Badges", "Certifications", "Interests", "Technologies"] as const;
-type Category = typeof CATEGORIES[number];
+type Category = (typeof CATEGORIES)[number];
 
 type Item = {
   id: string;
@@ -77,24 +77,21 @@ const ITEMS: Item[] = [
     id: "badge-az900",
     title: "Azure Fundamentals (AZ-900)",
     category: "Badges",
-    image:
-      "/badges/az900.png",
+    image: "/badges/az900.png",
     tags: ["Azure", "Cloud"],
   },
   {
     id: "badge-az104",
     title: "Azure Administrator Associate (AZ-104)",
     category: "Badges",
-    image:
-      "/badges/az104.png",
+    image: "/badges/az104.png",
     tags: ["Azure", "Administration"],
   },
   {
     id: "badge-az305",
     title: "Azure Solutions Architect Expert (AZ-305)",
     category: "Badges",
-    image:
-      "/badges/az305.png",
+    image: "/badges/az305.png",
     tags: ["Azure", "Architecture"],
   },
   {
@@ -102,7 +99,7 @@ const ITEMS: Item[] = [
     title: "Azure Network Engineer Associate (AZ-700)",
     category: "Badges",
     image:
-      "https://images.credly.com/size/340x340/images/fd4b03b7-d51d-4606-bb0f-790622f74c76/azure-network-engineer-associate-600x600.png",
+      "/badges/az700z.png",
     tags: ["Azure", "Networking"],
   },
 
@@ -136,7 +133,7 @@ const ITEMS: Item[] = [
     title: "Microsoft Certified: Azure Network Engineer Associate (AZ-700)",
     category: "Certifications",
     image:
-      "https://images.unsplash.com/photo-1555431189-0fabf2667795?w=800&auto=format&fit=crop&q=60",
+      "",
     tags: ["Azure", "Networking"],
   },
   {
@@ -389,7 +386,6 @@ export default function Page() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
       <div className="mx-auto max-w-7xl px-4 md:px-8 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-[320px,1fr] gap-8">
-        
         {/* Sidebar */}
         <aside className="lg:sticky lg:top-6 h-max">
           <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-xl">
@@ -431,6 +427,7 @@ export default function Page() {
                   </a>
                 </dd>
               </div>
+
               {/* Download CV Button */}
               <div className="col-span-2">
                 <a
@@ -442,7 +439,7 @@ export default function Page() {
                 </a>
               </div>
 
-              {/* Social Icons (inline SVGs) */}
+              {/* Social Icons */}
               <div className="col-span-2 flex justify-center gap-4 mt-1">
                 <a
                   href="https://www.linkedin.com/in/anouar-abouelnasr-302750120/"
@@ -455,7 +452,7 @@ export default function Page() {
                   <IconLinkedIn className="h-6 w-6" />
                 </a>
                 <a
-                  href="https://github.com/yourusername"
+                  href="https://github.com/Lorgcare"
                   target="_blank"
                   rel="noreferrer"
                   className="text-slate-300 hover:text-white transition"
@@ -481,7 +478,6 @@ export default function Page() {
 
         {/* Main */}
         <main className="space-y-16">
-          
           {/* About */}
           <section id="about">
             <SectionTitle title="About" />
@@ -571,11 +567,19 @@ export default function Page() {
                   className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition shadow-lg"
                 >
                   {item.image && (
-                    <div className="aspect-video">
+                    <div className={item.category === "Badges" ? "aspect-video bg-white" : "aspect-video"}>
                       <img
                         src={item.image}
-                        alt=""
-                        className="h-full w-full object-cover group-hover:scale-105 transition"
+                        alt={item.title}
+                        className={
+                          item.category === "Badges"
+                            ? "h-full w-full object-contain p-4"
+                            : "h-full w-full object-cover group-hover:scale-105 transition"
+                        }
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).src =
+                            "https://via.placeholder.com/600x338?text=Image+not+found";
+                        }}
                       />
                     </div>
                   )}
@@ -605,7 +609,7 @@ export default function Page() {
       </div>
 
       <footer className="py-8 text-center text-sm text-slate-400">
-        © {new Date().getFullYear()} Anouar Abouelnasr 
+        © {new Date().getFullYear()} Anouar Abouelnasr
       </footer>
     </div>
   );
