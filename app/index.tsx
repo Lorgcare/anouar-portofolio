@@ -78,7 +78,7 @@ const ITEMS: Item[] = [
     title: "Azure Fundamentals (AZ-900)",
     category: "Badges",
     image:
-      "https://images.credly.com/size/340x340/images/6a254dad-77e5-4e71-8049-94e5c7a15981/azure-fundamentals-600x600.png",
+      "/badges/az900.png",
     tags: ["Azure", "Cloud"],
   },
   {
@@ -86,7 +86,7 @@ const ITEMS: Item[] = [
     title: "Azure Administrator Associate (AZ-104)",
     category: "Badges",
     image:
-      "https://images.credly.com/size/340x340/images/63316b60-f62c-4f6b-8e3e-3ef2b71c4860/azure-administrator-associate-600x600.png",
+      "/badges/az104.png",
     tags: ["Azure", "Administration"],
   },
   {
@@ -94,7 +94,7 @@ const ITEMS: Item[] = [
     title: "Azure Solutions Architect Expert (AZ-305)",
     category: "Badges",
     image:
-      "https://images.credly.com/size/340x340/images/85dcf93b-ec1d-4e54-bf7e-49f4656b19dc/azure-solutions-architect-expert-600x600.png",
+      "/badges/az305.png",
     tags: ["Azure", "Architecture"],
   },
   {
